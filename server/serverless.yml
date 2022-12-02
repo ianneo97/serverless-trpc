@@ -1,0 +1,33 @@
+service: aws-node-project
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+functions:
+  books:
+    handler: functions/books/handler.handler
+    events:
+      - http:
+          path: books/{proxy+}
+          method: any
+
+  movies:
+    handler: functions/movies/handler.handler
+    events:
+      - http:
+          path: movies/{proxy+}
+          method: any
+
+  movieOpenapiJson:
+    handler: functions/movies/handler.openApiJson
+    events:
+      - http:
+          path: movies/openapi.json
+          method: GET
