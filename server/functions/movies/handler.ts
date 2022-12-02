@@ -52,7 +52,7 @@ export const router = initRouter({
     updateMovie: privateProcedure
         .meta({
             openapi: {
-                method: 'PUT',
+                method: 'POST',
                 path: '/updateMovie',
                 tags: ['movies'],
             },
@@ -65,7 +65,7 @@ export const router = initRouter({
     deleteMovie: privateProcedure
         .meta({
             openapi: {
-                method: 'DELETE',
+                method: 'POST',
                 path: '/deleteMovie',
                 tags: ['movies'],
             },

@@ -7,6 +7,9 @@ const t = initTRPC.context<Context>().meta<OpenApiMeta>().create({
     transformer: superjson,
 });
 
+/**
+ * This is where to implement custom authorization for the application
+ */
 const isAuthed = t.middleware(({ ctx, next }) => {
     return next({
         ctx: {
